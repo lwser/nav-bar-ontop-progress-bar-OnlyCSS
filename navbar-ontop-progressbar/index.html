@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+    <title>Document</title>
+
+
+    <style>
+        body {
+            height: 1800px;
+
+        }
+
+        #progress-bar {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 10px;
+
+            background-color: #337ab7;
+
+            z-index: 1000;
+
+            transition: width 0.3s ease-out;
+
+        }
+
+        #content {
+
+            min-height: 100vh;
+            /* ajusta el alto del contenido a la altura de la pantalla */
+
+        }
+
+        .navbar {
+
+            background-color: #333;
+
+            padding: 1rem;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            position:fixed;
+
+            width: 100%;
+
+            z-index: 1000;
+
+        }
+
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 0 2rem;
+
+        }
+
+
+        .logo {
+
+            font-size: 1.5rem;
+
+            font-weight: bold;
+
+            color: #fff;
+
+            text-decoration: none;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            list-style: none;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        .nav-links li {
+
+            margin-right: 20px;
+
+        }
+
+
+        .nav-links a {
+
+            color: #fff;
+
+            text-decoration: none;
+
+            transition: color 0.2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #ccc;
+
+        }
+
+
+        .burger {
+
+            display: none;
+
+        }
+
+
+        /* Media query para mostrar el burger en pantallas pequeñas */
+
+        @media (max-width: 768px) {
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+            .burger {
+
+                display: block;
+
+                cursor: pointer;
+
+            }
+
+            .burger span {
+
+                background-color: #fff;
+
+                height: 2px;
+
+                width: 20px;
+
+                margin-bottom: 4px;
+
+                display: block;
+
+            }
+
+            .burger.active span {
+
+                background-color: #ccc;
+
+            }
+
+            .nav-links.active {
+
+                display: block;
+
+                position: absolute;
+
+                top: 50px;
+
+                left: 0;
+
+                background-color: #333;
+
+                padding: 1rem;
+
+                width: 100%;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav id="navbar">
+
+
+        <nav class="navbar">
+
+            <div class="container">
+
+                <a href="#" class="logo">Logo</a>
+
+                <ul class="nav-links">
+
+                    <li><a href="#">Inicio</a></li>
+
+                    <li><a href="#">Acerca de</a></li>
+
+                    <li><a href="#">Servicios</a></li>
+
+                    <li><a href="#">Contacto</a></li>
+
+                </ul>
+
+                <div class="burger">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+
+    </nav>
+
+
+
+    <div id="progress-bar"></div>
+
+    <div id="content">
+
+        <!-- Sección de imágenes -->
+
+        <section id="gallery" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Galería de imágenes</h2>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <img src="image1.jpg" alt="Imagen 1" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image2.jpg" alt="Imagen 2" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image3.jpg" alt="Imagen 3" class="img-fluid mb-3">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Sección de imágenes -->
+
+        <section id="gallery" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Galería de imágenes</h2>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <img src="image1.jpg" alt="Imagen 1" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image2.jpg" alt="Imagen 2" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image3.jpg" alt="Imagen 3" class="img-fluid mb-3">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Sección de imágenes -->
+
+        <section id="gallery" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Galería de imágenes</h2>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <img src="image1.jpg" alt="Imagen 1" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image2.jpg" alt="Imagen 2" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image3.jpg" alt="Imagen 3" class="img-fluid mb-3">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Sección de texto -->
+
+        <section id="about" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Acerca de nosotros</h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor,
+                            vestibulum
+                            magna sed, convallis ex. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur
+                            ridiculus mus.</p>
+
+                        <p>Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+                            lacinia
+                            odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.</p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient
+                            montes,
+                            nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <p>Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis
+                            parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Sección de imágenes -->
+
+        <section id="gallery" class="py-5">
+
+            <div class="container">
+
+                <h2 class="text-center mb-4">Galería de imágenes</h2>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <img src="image1.jpg" alt="Imagen 1" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image2.jpg" alt="Imagen 2" class="img-fluid mb-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <img src="image3.jpg" alt="Imagen 3" class="img-fluid mb-3">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+    </div>
+
+
+
+
+    <script>
+
+        const burger = document.getElementById('burger');
+
+        const navLinks = document.querySelector('.nav-links');
+
+
+        burger.addEventListener('click', () => {
+
+            navLinks.classList.toggle('active');
+
+            burger.classList.toggle('active');
+
+        });
+
+
+        
+
+    </script>
+
+    <script>
+
+const progressBar = document.getElementById('progress-bar');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY; // Distancia desplazada desde la parte superior
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight; // Altura del documento menos la altura de la ventana
+            const progress = (scrollTop / docHeight) * 100; // Porcentaje desplazado
+
+            progressBar.style.width = `${progress}%`; // Ajuste del ancho de la barra de progreso
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
